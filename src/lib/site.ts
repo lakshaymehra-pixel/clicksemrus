@@ -306,86 +306,142 @@ export type WorkItem = {
   challenge: string;
   approach: string;
   services: string[];
+  /** Live site and full-page screenshots with their pixel sizes. */
+  url?: string;
+  shotDesktop?: string;
+  shotDesktopSize?: [number, number];
+  shotMobile?: string;
+  shotMobileSize?: [number, number];
+  instagram?: string;
+  facebook?: string;
+  /** Plain-language list of what ClickSemrus delivered. */
+  deliverables?: string[];
+  appStore?: string;
+  playStore?: string;
 };
 
 export const WORK: WorkItem[] = [
   {
-    slug: "glowroot-skincare-store",
-    title: "D2C skincare store relaunch",
-    client: "GlowRoot (D2C skincare)",
+    slug: "delhidental",
+    title: "Dr. Kathuria's Dentistry: website + local SEO",
+    client: "Dr. Kathuria's Dentistry, South Delhi",
+    industry: "Healthcare & Clinics",
+    type: "website",
+    cover: "/work/delhidental.jpg",
+    url: "https://delhidental.com/",
+    shotDesktop: "/work/shots/delhidental-desktop.jpg",
+    shotDesktopSize: [1200, 11126],
+    shotMobile: "/work/shots/delhidental-mobile.jpg",
+    shotMobileSize: [390, 16279],
+    facebook: "https://www.facebook.com/DrKathuriasDentistry/",
+    result: "Full backend + frontend ownership: faster site, cleaner server, better rankings",
+    summary: "A fast WordPress rebuild for a 30-year-old multi-speciality clinic: treatment pages, celebrity trust section, click-to-call and WhatsApp booking.",
+    challenge: "The old site was slow, hit by malware and did not rank for implant or smile-makeover searches despite decades of reputation.",
+    approach: "We cleaned and hardened the server, rebuilt the site on a lightweight theme with LiteSpeed caching, wrote treatment and location pages, and set up Google Business Profile optimisation with a review flow.",
+    services: ["web-design-development", "seo"],
+    deliverables: ["Backend & frontend development", "Hosting & server handling", "Speed & SEO optimisation", "Ongoing maintenance"],
+  },
+  {
+    slug: "smiledentalcarecentre",
+    title: "Smile Dental Care Centre: GMB + SEO + website",
+    client: "Smile Dental Care Centre, East of Kailash & Faridabad",
+    industry: "Healthcare & Clinics",
+    type: "website",
+    cover: "/work/smiledentalcarecentre.jpg",
+    url: "https://smiledentalcarecentre.com/",
+    shotDesktop: "/work/shots/smiledentalcarecentre-desktop.jpg",
+    shotDesktopSize: [1200, 11969],
+    shotMobile: "/work/shots/smiledentalcarecentre-mobile.jpg",
+    shotMobileSize: [390, 24000],
+    instagram: "https://www.instagram.com/smiledentalcarecentre/",
+    facebook: "https://www.facebook.com/smiledentalcarecentre1/",
+    result: "GMB ranking for East of Kailash and Faridabad, plus organic leads from the site",
+    summary: "Two-location clinic growth: Google Business Profile (GMB) ranking, website SEO, a booking-first website and a weekly content calendar that brings organic leads.",
+    challenge: "Two locations, 25 years of history and zero online booking. Patients were calling only during clinic hours.",
+    approach: "We optimise and rank both Google Business Profiles, run on-page and technical SEO, built the booking-first website with click-to-call and WhatsApp, and publish scheduled blogs for long-tail dental searches.",
+    services: ["seo", "web-design-development", "content-marketing"],
+    deliverables: ["GMB (Google Business Profile) SEO", "Website SEO", "Website development", "Organic lead generation"],
+  },
+  {
+    slug: "sdcc-international",
+    title: "NRI dental tourism landing site",
+    client: "Dr. RA Garg's Smile Dental Expert (international patients)",
+    industry: "Healthcare & Clinics",
+    type: "website",
+    cover: "/work/sdcc-international.jpg",
+    url: "https://international.smiledentalcarecentre.com/",
+    shotDesktop: "/work/shots/sdcc-international-desktop.jpg",
+    shotDesktopSize: [1200, 8932],
+    shotMobile: "/work/shots/sdcc-international-mobile.jpg",
+    shotMobileSize: [390, 15363],
+    result: "Treatment-plan funnel for NRI patients: country, city, treatment, WhatsApp",
+    summary: "A dedicated international site with USD pricing, a fly-in planner widget and WhatsApp-first conversion for patients in the US, UK, Canada and Australia.",
+    challenge: "Overseas patients needed prices, credentials and travel logistics in one place, in their currency, before they would message.",
+    approach: "We built a separate subdomain with a treatment-plan form, transparent USD pricing, surgeon credentials and a WhatsApp handoff, then targeted NRI search terms.",
+    services: ["web-design-development", "seo", "whatsapp-email-marketing"],
+  },
+  {
+    slug: "purexa",
+    title: "PUREXA oral-care D2C store",
+    client: "PUREXA Oral Wellness",
     industry: "Retail & E-Commerce",
     type: "website",
-    cover: "/work/glowroot.svg",
-    result: "Store conversion rate up from 0.9% to 2.4%",
-    summary: "A Shopify rebuild with faster pages, ingredient-led product storytelling and a WhatsApp cart-recovery flow.",
-    challenge: "Traffic from Meta ads was landing on slow product pages with no trust signals. Carts were abandoned at the shipping step and there was no recovery channel.",
-    approach: "We rebuilt the theme for speed, added ingredient explainers and review widgets, simplified checkout to a single step and connected WhatsApp cart recovery with a 10-minute and 24-hour nudge.",
-    services: ["web-design-development", "whatsapp-email-marketing", "meta-ads"],
+    cover: "/work/purexa.jpg",
+    url: "https://purexa.in/",
+    shotDesktop: "/work/shots/purexa-desktop.jpg",
+    shotDesktopSize: [1200, 9468],
+    shotMobile: "/work/shots/purexa-mobile.jpg",
+    shotMobileSize: [390, 8473],
+    instagram: "https://www.instagram.com/purexa.in/",
+    facebook: "https://www.facebook.com/Purexaoralwellness/",
+    result: "End-to-end D2C store: build, handling and optimisation",
+    summary: "E-commerce build for a dentist-backed oral care brand: shop by concern, best-seller combos, gamified discounts and a ProCare dentist network page.",
+    challenge: "A new D2C brand needed a store that explained products by concern, converted first-time buyers and supported dentist referrals.",
+    approach: "We set up the Shopify theme, product and combo structure, offer popups, WhatsApp chat and Meta Pixel tracking, with creatives for launch campaigns.",
+    services: ["web-design-development", "meta-ads", "branding-creative"],
+    deliverables: ["Backend & frontend development", "Store handling & maintenance", "Performance optimisation", "Launch creatives"],
   },
   {
-    slug: "smilecraft-dental-campaign",
-    title: "Dental clinic local campaign creatives",
-    client: "SmileCraft Dental (South Delhi)",
-    industry: "Healthcare & Clinics",
-    type: "creative",
-    cover: "/work/smilecraft.svg",
-    result: "74 calls a month from Google Maps and Search",
-    summary: "Google Business Profile overhaul, treatment landing pages and a creative set for Search and Display campaigns.",
-    challenge: "The clinic was invisible for implant and aligner searches, had 11 reviews and a website that did not mention treatments by name.",
-    approach: "We rewrote the Business Profile, launched a review workflow at the reception desk, built treatment pages and designed ad creatives around outcomes and pricing transparency.",
-    services: ["seo", "google-ads-ppc", "branding-creative"],
-  },
-  {
-    slug: "urbannest-real-estate-reels",
-    title: "Project walkthrough reels",
-    client: "UrbanNest Realty (Noida)",
-    industry: "Real Estate",
-    type: "reel",
-    cover: "/work/urbannest.svg",
-    result: "Cost per site visit down 52%",
-    summary: "A series of 20 walkthrough and locality reels used organically and as Meta video ads for a new launch.",
-    challenge: "Static brochure ads were generating low-intent leads. Prospects could not picture the project or the neighbourhood.",
-    approach: "We scripted and shot walkthroughs, commute explainers and resident interviews, then ran them as Meta video ads with budget and location qualifiers routed to WhatsApp.",
-    services: ["meta-ads", "social-media-marketing", "branding-creative"],
-  },
-  {
-    slug: "tandoor-tales-ordering",
-    title: "Direct-order website for a cloud kitchen",
-    client: "Tandoor Tales (Gurugram)",
-    industry: "Restaurants & Food",
-    type: "website",
-    cover: "/work/tandoor-tales.svg",
-    result: "31% of orders now come direct instead of via aggregators",
-    summary: "A mobile-first ordering site with WhatsApp checkout, promoted through Google Maps and geo-targeted Instagram ads.",
-    challenge: "Almost every order came through delivery apps, with commissions wiping out margins on combos.",
-    approach: "We built a lightweight menu site with WhatsApp ordering, added it to the Business Profile and ran Instagram offers within a 5 km radius with a direct-order coupon.",
-    services: ["web-design-development", "seo", "meta-ads"],
-  },
-  {
-    slug: "pathshala-admissions-creatives",
-    title: "Admission season creative system",
-    client: "Pathshala Coaching (Delhi)",
-    industry: "Education & Coaching",
-    type: "creative",
-    cover: "/work/pathshala.svg",
-    result: "Batches filled 3 weeks before the session started",
-    summary: "A modular creative kit for Search, Display and Instagram with faculty-led hooks and exam countdown formats.",
-    challenge: "Each season the institute rebuilt creatives from scratch and launched late, losing the early-enquiry window to competitors.",
-    approach: "We designed a reusable template system, pre-produced faculty videos and scheduled campaigns against the exam calendar with WhatsApp follow-up for every enquiry.",
-    services: ["branding-creative", "google-ads-ppc", "whatsapp-email-marketing"],
-  },
-  {
-    slug: "maison-ira-fashion-reels",
-    title: "Festive collection reels",
-    client: "Maison Ira (Fashion label)",
+    slug: "blameless",
+    title: "Blameless skincare brand store",
+    client: "Blameless Skincare India",
     industry: "Fashion & Beauty",
-    type: "reel",
-    cover: "/work/maison-ira.svg",
-    result: "Festive drop sold out in 11 days",
-    summary: "Trend-led reels and creator collaborations for a Diwali collection, amplified with Meta catalogue ads.",
-    challenge: "The label had a loyal but small following and no budget for a big influencer campaign.",
-    approach: "We produced 15 reels using trending audio within 24 hours of each trend, partnered with six micro creators on a performance basis and retargeted engaged viewers with catalogue ads.",
-    services: ["social-media-marketing", "influencer-marketing", "meta-ads"],
+    type: "website",
+    cover: "/work/blameless.jpg",
+    url: "https://blameless.in/",
+    shotDesktop: "/work/shots/blameless-desktop.jpg",
+    shotDesktopSize: [1200, 6056],
+    shotMobile: "/work/shots/blameless-mobile.jpg",
+    shotMobileSize: [390, 6228],
+    instagram: "https://www.instagram.com/liv.blameless/",
+    facebook: "https://www.facebook.com/share/12LcMx1zN78/",
+    result: "Performance + influencer + social, with content created in-house",
+    summary: "Growth partner for a clean-beauty brand: Meta and Google performance campaigns, influencer collaborations, daily social media and reels/content creation.",
+    challenge: "The brand needed a premium look that still pushed offers hard and worked flawlessly on mobile, where most of its Instagram traffic lands.",
+    approach: "We run performance marketing on Meta and Google, manage influencer seeding and paid collaborations, publish the social calendar and produce the reels, statics and UGC-style content that feed all of it.",
+    services: ["meta-ads", "influencer-marketing", "social-media-marketing", "content-marketing"],
+    deliverables: ["Performance marketing", "Influencer marketing", "Social media marketing", "Content creation"],
+  },
+  {
+    slug: "taiyari-neet-ki",
+    title: "Taiyari NEET Ki: iOS + Android app and landing page",
+    client: "Taiyari NEET Ki (NEET preparation)",
+    industry: "Education & Coaching",
+    type: "website",
+    cover: "/work/taiyarineetki.jpg",
+    url: "https://taiyarineetki.com/",
+    shotDesktop: "/work/shots/taiyarineetki-desktop.jpg",
+    shotDesktopSize: [1200, 8341],
+    shotMobile: "/work/shots/taiyarineetki-mobile.jpg",
+    shotMobileSize: [390, 15717],
+    appStore: "https://apps.apple.com/app/taiyari-neet-ki/id6740091521",
+    playStore: "https://play.google.com/store/apps/details?id=com.taiyarineetki.app",
+    result: "Live on the App Store and Google Play with a conversion-focused landing page",
+    summary: "A complete NEET learning app for iOS and Android (topic-wise explanations, MCQ practice, PYQs, mock tests) plus the landing page that drives installs.",
+    challenge: "Students needed one app that explains concepts and lets them practise, and the brand needed a landing page that converts search and ad traffic into installs.",
+    approach: "We designed and developed the app for both platforms, shipped it to the App Store and Google Play, and built a fast landing page with install CTAs, feature sections and pricing.",
+    deliverables: ["iOS app development", "Android app development", "Landing page design & development", "App Store & Play Store launch"],
+    services: ["web-design-development", "branding-creative"],
   },
 ];
 
@@ -609,6 +665,39 @@ export function serviceUrl(slug: string): string {
   const hit = findSubService(slug);
   if (hit) return `/services/${hit.category.slug}/${hit.service.slug}`;
   return `/services/${slug}`;
+}
+
+/* ---------------------------------------------------------------- portfolio helpers */
+/**
+ * WORK items relevant to a service or category slug. Matches items tagged with the slug itself,
+ * with the parent category's slug, or with any sibling in the same category. Falls back to all WORK.
+ */
+export function workForService(slug: string): WorkItem[] {
+  const cat = findCategory(slug) ?? findSubService(slug)?.category;
+  const related = new Set<string>([slug]);
+  if (cat) {
+    related.add(cat.slug);
+    if (cat.legacy) related.add(cat.legacy);
+    cat.subs.forEach((s) => related.add(s.slug));
+  }
+  const direct = WORK.filter((w) => w.services.includes(slug));
+  const viaCategory = WORK.filter((w) => !direct.includes(w) && w.services.some((s) => related.has(s)));
+  const rest = WORK.filter((w) => !direct.includes(w) && !viaCategory.includes(w));
+  // Most relevant first; the caller's limit decides how many are shown, so pages are never empty.
+  return [...direct, ...viaCategory, ...rest];
+}
+
+/** WORK items for an industry name (or slug). Falls back to all WORK so no industry page is empty. */
+export function workForIndustry(name: string): WorkItem[] {
+  const ind = INDUSTRIES.find((i) => i.name === name || i.slug === name);
+  const label = ind?.name ?? name;
+  const direct = WORK.filter((w) => w.industry === label);
+  return direct.length ? direct : WORK;
+}
+
+/** Every location page shows the full portfolio; the caller applies a limit. */
+export function workForLocation(): WorkItem[] {
+  return WORK;
 }
 
 /* ---------------------------------------------------------------- locations */

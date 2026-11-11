@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, TrendingUp, ExternalLink } from "lucide-react";
+import FacebookIcon from "@/components/FacebookIcon";
+import InstagramIcon from "@/components/InstagramIcon";
 import { SITE, WORK, SERVICES, INDUSTRIES, serviceUrl } from "@/lib/site";
 import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 import ServiceIcon from "@/components/ServiceIcon";
@@ -51,11 +53,34 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
           <p className="text-muted mt-2 font-medium">{w.client}</p>
           <p className="text-muted text-lg mt-5 leading-relaxed">{w.summary}</p>
           <p className="mt-6 inline-flex items-center gap-2 font-bold text-lg"><TrendingUp className="text-lime" size={22} /> {w.result}</p>
+          {w.deliverables && (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {w.deliverables.map((d) => <li key={d} className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#0b0b14] text-white">{d}</li>)}
+            </ul>
+          )}
+          {(w.url || w.instagram || w.facebook || w.appStore || w.playStore) && (
+            <div className="mt-6 flex items-center gap-3 flex-wrap">
+              {w.url && <a href={w.url} target="_blank" rel="noopener noreferrer" className="btn btn-accent">Open live site <ExternalLink size={16} /></a>}
+              {w.playStore && <a href={w.playStore} target="_blank" rel="noopener noreferrer" className="btn btn-dark">Google Play</a>}
+              {w.appStore && <a href={w.appStore} target="_blank" rel="noopener noreferrer" className="btn btn-dark">App Store</a>}
+              {w.instagram && <a href={w.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid place-items-center w-11 h-11 rounded-full border border-border bg-surface hover:bg-[#0b0b14] hover:text-white transition"><InstagramIcon size={18} /></a>}
+              {w.facebook && <a href={w.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid place-items-center w-11 h-11 rounded-full border border-border bg-surface hover:bg-[#0b0b14] hover:text-white transition"><FacebookIcon size={18} /></a>}
+            </div>
+          )}
         </div>
         <Reveal delay={90} variant="zoom">
-          <div className="card overflow-hidden !transform-none">
-            <Image src={w.cover} alt={w.title} width={1200} height={800} className="w-full h-auto" priority sizes="(min-width: 1024px) 600px, 100vw" />
-          </div>
+          {w.shotDesktop ? (
+            <div className="work-frame is-animated" style={{ "--shift": `${(-(1 - (w.shotDesktopSize ? w.shotDesktopSize[0] / 1.5 / w.shotDesktopSize[1] : 0.3)) * 100).toFixed(2)}%`, "--play": `${Math.round(((w.shotDesktopSize?.[1] ?? 6000) / 110) * 2.2)}s` } as React.CSSProperties}>
+              <div className="work-frame__bar"><span /><span /><span /><i className="work-frame__url">{w.url?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</i></div>
+              <div className="work-frame__view">
+                <Image src={w.shotDesktop} alt={w.title} width={w.shotDesktopSize?.[0] ?? 1200} height={w.shotDesktopSize?.[1] ?? 6000} className="work-frame__img" priority sizes="(min-width: 1024px) 600px, 100vw" />
+              </div>
+            </div>
+          ) : (
+            <div className="card overflow-hidden !transform-none">
+              <Image src={w.cover} alt={w.title} width={1200} height={800} className="w-full h-auto" priority sizes="(min-width: 1024px) 600px, 100vw" />
+            </div>
+          )}
         </Reveal>
       </section>
 
